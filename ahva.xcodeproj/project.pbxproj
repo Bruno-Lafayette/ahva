@@ -11,6 +11,7 @@
 		88F98E80298BF25300B95A80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7F298BF25300B95A80 /* ContentView.swift */; };
 		88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E81298BF25300B95A80 /* Assets.xcassets */; };
 		88F98E85298BF25300B95A80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E84298BF25300B95A80 /* Preview Assets.xcassets */; };
+		88F98E8C298BF36600B95A80 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E8B298BF36600B95A80 /* Avatar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		88F98E7F298BF25300B95A80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		88F98E81298BF25300B95A80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88F98E84298BF25300B95A80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		88F98E8B298BF36600B95A80 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				88F98E7D298BF25300B95A80 /* ahvaApp.swift */,
 				88F98E7F298BF25300B95A80 /* ContentView.swift */,
+				88F98E8B298BF36600B95A80 /* Avatar.swift */,
 				88F98E81298BF25300B95A80 /* Assets.xcassets */,
 				88F98E83298BF25300B95A80 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F98E80298BF25300B95A80 /* ContentView.swift in Sources */,
+				88F98E8C298BF36600B95A80 /* Avatar.swift in Sources */,
 				88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +271,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -295,6 +300,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
