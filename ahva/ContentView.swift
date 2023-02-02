@@ -8,21 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @State var name: String
+    @State var style: String = ""
+    @State var im: String = ""
     
     var body: some View {
         VStack {
+            TextField("Digite o nome do seu avatar", text: $name)
             
+//            Button("Enviar") {
+//                let avatar = Avatar(name: "Well", style: "pixel-art")
+//                avatar.fetch()
+//
+//                print("funciona")
+//
+//
+//            }
             
-            Button("Enviar") {
-                
-                let avatar = Avatar(name: "Bruno", style: "big-smile")
-                avatar.fetch()
-                
+            AsyncImage(url: URL(string: im))
+            
+        
+            Button {
+                self.im = imagem(name: name, style: "pixel-art")
                 print("funciona")
+            } label: {
+                Text("Enviar")
             }
+
+            
         }
-        .padding()
+    }
+    
+    func imagem(name: String, style: String) -> String{
+        return "https://api.dicebear.com/5.x/\(style)/png?seed=\(name)"
+//        AsyncImage(url: URL(string: "https://api.dicebear.com/5.x/\(style)/png?seed=\(name)"))
     }
 }
 
@@ -31,3 +50,4 @@ struct ContentView: View {
 //        ContentView()
 //    }
 //}
+
