@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5972992CB2400B59B9D /* HTTPRequest.swift */; };
+		3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5992992D10B00B59B9D /* Extension+Class.swift */; };
+		3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */; };
 		88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7D298BF25300B95A80 /* ahvaApp.swift */; };
 		88F98E80298BF25300B95A80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7F298BF25300B95A80 /* ContentView.swift */; };
 		88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E81298BF25300B95A80 /* Assets.xcassets */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F18A5972992CB2400B59B9D /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		3F18A5992992D10B00B59B9D /* Extension+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Class.swift"; sourceTree = "<group>"; };
+		3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExemploManhattan.swift; sourceTree = "<group>"; };
 		88F98E7A298BF25300B95A80 /* ahva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ahva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F98E7D298BF25300B95A80 /* ahvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ahvaApp.swift; sourceTree = "<group>"; };
 		88F98E7F298BF25300B95A80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,9 +61,12 @@
 			children = (
 				88F98E7D298BF25300B95A80 /* ahvaApp.swift */,
 				88F98E7F298BF25300B95A80 /* ContentView.swift */,
+				3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */,
 				88F98E8B298BF36600B95A80 /* Avatar.swift */,
 				88F98E81298BF25300B95A80 /* Assets.xcassets */,
 				88F98E83298BF25300B95A80 /* Preview Content */,
+				3F18A5972992CB2400B59B9D /* HTTPRequest.swift */,
+				3F18A5992992D10B00B59B9D /* Extension+Class.swift */,
 			);
 			path = ahva;
 			sourceTree = "<group>";
@@ -141,8 +150,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F98E80298BF25300B95A80 /* ContentView.swift in Sources */,
+				3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */,
 				88F98E8C298BF36600B95A80 /* Avatar.swift in Sources */,
+				3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */,
 				88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */,
+				3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

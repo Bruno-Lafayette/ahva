@@ -29,3 +29,5 @@ struct Avatar: Hashable{
         task.resume()
     }
 }
+
+
