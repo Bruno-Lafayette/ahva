@@ -10,10 +10,12 @@
 		3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5972992CB2400B59B9D /* HTTPRequest.swift */; };
 		3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5992992D10B00B59B9D /* Extension+Class.swift */; };
 		3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */; };
+		3F18A59E2992E25A00B59B9D /* CreateAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59D2992E25A00B59B9D /* CreateAvatarView.swift */; };
+		3FC950FF2994341F000BC17C /* CustomAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC950FE2994341F000BC17C /* CustomAvatarView.swift */; };
+		3FC95101299435CD000BC17C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC95100299435CD000BC17C /* Preview Assets.xcassets */; };
 		88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7D298BF25300B95A80 /* ahvaApp.swift */; };
 		88F98E80298BF25300B95A80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7F298BF25300B95A80 /* ContentView.swift */; };
 		88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E81298BF25300B95A80 /* Assets.xcassets */; };
-		88F98E85298BF25300B95A80 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E84298BF25300B95A80 /* Preview Assets.xcassets */; };
 		88F98E8C298BF36600B95A80 /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E8B298BF36600B95A80 /* Avatar.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +23,13 @@
 		3F18A5972992CB2400B59B9D /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		3F18A5992992D10B00B59B9D /* Extension+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Class.swift"; sourceTree = "<group>"; };
 		3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExemploManhattan.swift; sourceTree = "<group>"; };
+		3F18A59D2992E25A00B59B9D /* CreateAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarView.swift; sourceTree = "<group>"; };
+		3FC950FE2994341F000BC17C /* CustomAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAvatarView.swift; sourceTree = "<group>"; };
+		3FC95100299435CD000BC17C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88F98E7A298BF25300B95A80 /* ahva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ahva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F98E7D298BF25300B95A80 /* ahvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ahvaApp.swift; sourceTree = "<group>"; };
 		88F98E7F298BF25300B95A80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		88F98E81298BF25300B95A80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		88F98E84298BF25300B95A80 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88F98E8B298BF36600B95A80 /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -40,6 +44,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FC950FD299433EE000BC17C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F18A59D2992E25A00B59B9D /* CreateAvatarView.swift */,
+				3FC950FE2994341F000BC17C /* CustomAvatarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3FC95102299435DC000BC17C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3FC95100299435CD000BC17C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		88F98E71298BF25200B95A80 = {
 			isa = PBXGroup;
 			children = (
@@ -59,24 +80,17 @@
 		88F98E7C298BF25300B95A80 /* ahva */ = {
 			isa = PBXGroup;
 			children = (
+				88F98E81298BF25300B95A80 /* Assets.xcassets */,
+				3FC950FD299433EE000BC17C /* View */,
 				88F98E7D298BF25300B95A80 /* ahvaApp.swift */,
 				88F98E7F298BF25300B95A80 /* ContentView.swift */,
 				3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */,
 				88F98E8B298BF36600B95A80 /* Avatar.swift */,
-				88F98E81298BF25300B95A80 /* Assets.xcassets */,
-				88F98E83298BF25300B95A80 /* Preview Content */,
 				3F18A5972992CB2400B59B9D /* HTTPRequest.swift */,
 				3F18A5992992D10B00B59B9D /* Extension+Class.swift */,
+				3FC95102299435DC000BC17C /* Preview Content */,
 			);
 			path = ahva;
-			sourceTree = "<group>";
-		};
-		88F98E83298BF25300B95A80 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				88F98E84298BF25300B95A80 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +151,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88F98E85298BF25300B95A80 /* Preview Assets.xcassets in Resources */,
 				88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */,
+				3FC95101299435CD000BC17C /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,9 +166,11 @@
 				88F98E80298BF25300B95A80 /* ContentView.swift in Sources */,
 				3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */,
 				88F98E8C298BF36600B95A80 /* Avatar.swift in Sources */,
+				3F18A59E2992E25A00B59B9D /* CreateAvatarView.swift in Sources */,
 				3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */,
 				88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */,
 				3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */,
+				3FC950FF2994341F000BC17C /* CustomAvatarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
