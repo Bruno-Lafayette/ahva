@@ -111,7 +111,7 @@
 				88F98E81298BF25300B95A80 /* Assets.xcassets */,
 				88F98E83298BF25300B95A80 /* Preview Content */,
 				3F18A5992992D10B00B59B9D /* Extension+Class.swift */,
-				3FC95102299435DC000BC17C /* Preview Content */,
+				3FC9510829943C05000BC17C /* Preview Content */,
 			);
 			path = ahva;
 			sourceTree = "<group>";
@@ -174,8 +174,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC9510729943C02000BC17C /* Preview Assets.xcassets in Resources */,
 				88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */,
-				3FC95101299435CD000BC17C /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
