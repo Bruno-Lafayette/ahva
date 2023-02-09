@@ -1,10 +1,3 @@
-//
-//  EditAvatarView.swift
-//  ahva
-//
-//  Created by Bruno Lafayette on 08/02/23.
-//
-
 import SwiftUI
 
 struct EditAvatarView: View {
@@ -23,29 +16,28 @@ struct EditAvatarView: View {
     }
     
     var body: some View {
-        
-        NavigationView{
-            VStack{
-                
-                AvatarView(style, option, name ?? seedDefault)
-                
-                TextField("Digite o nome do avatar", text: $name.bound)
-                    .padding()
-                OptionEditAvatar()
-                
-                Spacer()
-                    .toolbar {
-                        Button {
-                            Task{
-                                self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
-                                UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-                            }
-                            
-                        } label: {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-                        
+        VStack{
+            AvatarView(style, option, name ?? seedDefault)
+            
+            TextField("Digite o nome do avatar", text: $name.bound)
+                .padding()
+            OptionEditAvatar()
+            
+            Spacer()
+            
+        }
+        .navigationTitle("lagf")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    Task{
+                        self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
+                        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
                     }
+                    
+                } label: {
+                    Image(systemName: "square.and.arrow.up")
+                }
             }
         }
     }

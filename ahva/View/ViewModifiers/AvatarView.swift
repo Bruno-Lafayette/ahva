@@ -21,7 +21,6 @@ struct AvatarView: View {
     var body: some View{
         HStack{
             AsyncImage(url: URL(string: createAvatar(style, option, seed)))
-                .background(.blue)
                 .padding()
         }
     }
