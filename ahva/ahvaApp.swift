@@ -11,7 +11,7 @@ import SwiftUI
 struct ahvaApp: App {
     var body: some Scene {
         WindowGroup {
-            ExemploManhattan()
+            EditAvatarView(style: "adventurer", seedDefault: "Felix", option: "seed")
         }
     }
 }
