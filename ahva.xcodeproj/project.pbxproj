@@ -10,9 +10,10 @@
 		3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5972992CB2400B59B9D /* HTTPRequest.swift */; };
 		3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5992992D10B00B59B9D /* Extension+Class.swift */; };
 		3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */; };
-		3F18A59E2992E25A00B59B9D /* CreateAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59D2992E25A00B59B9D /* CreateAvatarView.swift */; };
-		3FC950FF2994341F000BC17C /* CustomAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC950FE2994341F000BC17C /* CustomAvatarView.swift */; };
-		3FC95101299435CD000BC17C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC95100299435CD000BC17C /* Preview Assets.xcassets */; };
+		883520962994741300512FE3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883520952994741300512FE3 /* ImageModel.swift */; };
+		88BDDD2B29943AC200846785 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD2A29943AC200846785 /* AvatarView.swift */; };
+		88BDDD31299442DD00846785 /* EditAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD30299442DD00846785 /* EditAvatarView.swift */; };
+		88DE5315299536FF00902E7B /* OptionEditAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE5314299536FF00902E7B /* OptionEditAvatar.swift */; };
 		88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7D298BF25300B95A80 /* ahvaApp.swift */; };
 		88F98E80298BF25300B95A80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7F298BF25300B95A80 /* ContentView.swift */; };
 		88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E81298BF25300B95A80 /* Assets.xcassets */; };
@@ -23,9 +24,11 @@
 		3F18A5972992CB2400B59B9D /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		3F18A5992992D10B00B59B9D /* Extension+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Class.swift"; sourceTree = "<group>"; };
 		3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExemploManhattan.swift; sourceTree = "<group>"; };
-		3F18A59D2992E25A00B59B9D /* CreateAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAvatarView.swift; sourceTree = "<group>"; };
-		3FC950FE2994341F000BC17C /* CustomAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAvatarView.swift; sourceTree = "<group>"; };
-		3FC95100299435CD000BC17C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		883520952994741300512FE3 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		883520972994C45D00512FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		88BDDD2A29943AC200846785 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		88BDDD30299442DD00846785 /* EditAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAvatarView.swift; sourceTree = "<group>"; };
+		88DE5314299536FF00902E7B /* OptionEditAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionEditAvatar.swift; sourceTree = "<group>"; };
 		88F98E7A298BF25300B95A80 /* ahva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ahva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F98E7D298BF25300B95A80 /* ahvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ahvaApp.swift; sourceTree = "<group>"; };
 		88F98E7F298BF25300B95A80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,21 +47,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3FC950FD299433EE000BC17C /* View */ = {
+		88BDDD2C29943F8100846785 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3F18A59D2992E25A00B59B9D /* CreateAvatarView.swift */,
-				3FC950FE2994341F000BC17C /* CustomAvatarView.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		88BDDD2D29943F9F00846785 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3F18A5972992CB2400B59B9D /* HTTPRequest.swift */,
+				883520952994741300512FE3 /* ImageModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		88BDDD2E29943FB600846785 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */,
+				88BDDD30299442DD00846785 /* EditAvatarView.swift */,
+				88BDDD2F299442B100846785 /* ViewModifiers */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		3FC95102299435DC000BC17C /* Preview Content */ = {
+		88BDDD2F299442B100846785 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				3FC95100299435CD000BC17C /* Preview Assets.xcassets */,
+				88BDDD2A29943AC200846785 /* AvatarView.swift */,
+				88DE5314299536FF00902E7B /* OptionEditAvatar.swift */,
 			);
-			path = "Preview Content";
+			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
 		88F98E71298BF25200B95A80 = {
@@ -80,13 +101,15 @@
 		88F98E7C298BF25300B95A80 /* ahva */ = {
 			isa = PBXGroup;
 			children = (
-				88F98E81298BF25300B95A80 /* Assets.xcassets */,
-				3FC950FD299433EE000BC17C /* View */,
+				883520972994C45D00512FE3 /* Info.plist */,
 				88F98E7D298BF25300B95A80 /* ahvaApp.swift */,
 				88F98E7F298BF25300B95A80 /* ContentView.swift */,
-				3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */,
+				88BDDD2C29943F8100846785 /* Model */,
+				88BDDD2D29943F9F00846785 /* ViewModel */,
+				88BDDD2E29943FB600846785 /* View */,
 				88F98E8B298BF36600B95A80 /* Avatar.swift */,
-				3F18A5972992CB2400B59B9D /* HTTPRequest.swift */,
+				88F98E81298BF25300B95A80 /* Assets.xcassets */,
+				88F98E83298BF25300B95A80 /* Preview Content */,
 				3F18A5992992D10B00B59B9D /* Extension+Class.swift */,
 				3FC95102299435DC000BC17C /* Preview Content */,
 			);
@@ -164,13 +187,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F98E80298BF25300B95A80 /* ContentView.swift in Sources */,
+				88DE5315299536FF00902E7B /* OptionEditAvatar.swift in Sources */,
 				3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */,
 				88F98E8C298BF36600B95A80 /* Avatar.swift in Sources */,
-				3F18A59E2992E25A00B59B9D /* CreateAvatarView.swift in Sources */,
+				88BDDD2B29943AC200846785 /* AvatarView.swift in Sources */,
+				883520962994741300512FE3 /* ImageModel.swift in Sources */,
 				3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */,
 				88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */,
 				3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */,
-				3FC950FF2994341F000BC17C /* CustomAvatarView.swift in Sources */,
+				88BDDD31299442DD00846785 /* EditAvatarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,9 +324,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ahva/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,9 +356,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ahva/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
