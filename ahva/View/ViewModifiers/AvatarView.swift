@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AvatarView: View {
     
-    var style: String
-    var seed: String
-    var option: String
+    private var style: String
+    private var seed: String
+    private var option: String
     
     init(_ style: String, _ option: String ,_ seed: String) {
         self.style = style
@@ -21,9 +21,9 @@ struct AvatarView: View {
     var body: some View{
         HStack{
             AsyncImage(url: URL(string: createAvatar(style, option, seed)))
+                .background(.blue)
                 .padding()
         }
-        Spacer()
     }
     
 }

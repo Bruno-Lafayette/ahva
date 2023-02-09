@@ -11,9 +11,9 @@ struct EditAvatarView: View {
     
     @State var name: String?
     @State var image: UIImage?
-    var option: String
-    var style: String
-    var seedDefault: String
+    private var option: String
+    private var style: String
+    private var seedDefault: String
     
     
     init(style: String, seedDefault: String, option: String) {
@@ -30,6 +30,8 @@ struct EditAvatarView: View {
                 AvatarView(style, option, name ?? seedDefault)
                 
                 TextField("Digite o nome do avatar", text: $name.bound)
+                    .padding()
+                OptionEditAvatar()
                 
                 Spacer()
                     .toolbar {
@@ -37,7 +39,6 @@ struct EditAvatarView: View {
                             Task{
                                 self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
                                 UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-
                             }
                             
                         } label: {
