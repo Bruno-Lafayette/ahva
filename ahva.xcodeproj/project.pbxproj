@@ -14,6 +14,7 @@
 		88BDDD2B29943AC200846785 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD2A29943AC200846785 /* AvatarView.swift */; };
 		88BDDD31299442DD00846785 /* EditAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD30299442DD00846785 /* EditAvatarView.swift */; };
 		88DE5315299536FF00902E7B /* OptionEditAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE5314299536FF00902E7B /* OptionEditAvatar.swift */; };
+		88DE53182995688E00902E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DE53172995688E00902E7B /* Preview Assets.xcassets */; };
 		88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7D298BF25300B95A80 /* ahvaApp.swift */; };
 		88F98E80298BF25300B95A80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7F298BF25300B95A80 /* ContentView.swift */; };
 		88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E81298BF25300B95A80 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		88BDDD2A29943AC200846785 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		88BDDD30299442DD00846785 /* EditAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAvatarView.swift; sourceTree = "<group>"; };
 		88DE5314299536FF00902E7B /* OptionEditAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionEditAvatar.swift; sourceTree = "<group>"; };
+		88DE53172995688E00902E7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88F98E7A298BF25300B95A80 /* ahva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ahva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F98E7D298BF25300B95A80 /* ahvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ahvaApp.swift; sourceTree = "<group>"; };
 		88F98E7F298BF25300B95A80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 			path = ViewModifiers;
 			sourceTree = "<group>";
 		};
+		88DE53162995682100902E7B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				88DE53172995688E00902E7B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		88F98E71298BF25200B95A80 = {
 			isa = PBXGroup;
 			children = (
@@ -109,9 +119,8 @@
 				88BDDD2E29943FB600846785 /* View */,
 				88F98E8B298BF36600B95A80 /* Avatar.swift */,
 				88F98E81298BF25300B95A80 /* Assets.xcassets */,
-				88F98E83298BF25300B95A80 /* Preview Content */,
+				88DE53162995682100902E7B /* Preview Content */,
 				3F18A5992992D10B00B59B9D /* Extension+Class.swift */,
-				3FC95102299435DC000BC17C /* Preview Content */,
 			);
 			path = ahva;
 			sourceTree = "<group>";
@@ -174,8 +183,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DE53182995688E00902E7B /* Preview Assets.xcassets in Resources */,
 				88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */,
-				3FC95101299435CD000BC17C /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
