@@ -26,12 +26,12 @@ struct MainView: View {
                     do {
                         //dentro da vm
                         let request = try HTTPRequestFactory(path: "https://databaseavatar.vercel.app/api/style", method: .GET).createRequest()
-                        let (data, response) = try await request.send()
-                        print(response)
+                        let (data, _) = try await request.send()
                         
                         if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any],
                             let styles: [String] = json["styles"] as? [String] {
                             self.styles = styles
+                            print(json.values)
                         }
                         
                         

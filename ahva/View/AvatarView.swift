@@ -21,11 +21,9 @@ struct AvatarView: View {
             AvatarGenerator(style, option, name ?? seedDefault)
             
             TextField("Digite o nome do avatar", text: $name.bound)
-                .padding()
-            OptionEditAvatar(type: style)
-            
+                .padding()            
             NavigationLink {
-                EditAvatarView()
+                EditAvatarView(name: name,option: option, style: style, seedDefault: seedDefault)
             } label: {
                 Text("Editar")
             }

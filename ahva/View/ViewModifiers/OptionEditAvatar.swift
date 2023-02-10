@@ -19,41 +19,48 @@ struct OptionEditAvatar: View {
     
     var body: some View {
         ScrollView(.horizontal) {
+            
             HStack(spacing: 10) {
-                ForEach(0..<styles.count) {option in
-                    
+                ForEach(Array(styles), id: \.key) { style in
                     Button {
-                        print("funciono \(styles.keys)")
+                        print(style.value)
                     } label: {
-                        ButtonStyle(text: "Item \(styles.keys)")
+                        ButtonStyle(text: style.key)
                     }
-                }
-            }.task {
-                do {
-                    //dentro da vm
-                    let request = try HTTPRequestFactory(path: "https://databaseavatar.vercel.app/api/character/\(type)", method: .GET).createRequest()
-                    let (data, response) = try await request.send()
-                    print(response)
-                    
-                    if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any],
-                       let styles: [String:Any] = json["styles"] as? [String:Any] {
-                        self.styles = styles
-                        print(styles.keys)
-                    }
-                    
-                    
-                    // deixar parte da trataiva aqui mesmo
-                } catch URLError.badURL {
-                    self.invalidUrlError = true
-                } catch {
-//                    print(error)
-//                    print(error.localizedDescription)
-                    self.unkownError = true
                 }
             }
+            .task {
+                await createOptions(type)
+            }
+            
             
         }
         
+    }
+}
+
+
+extension OptionEditAvatar{
+    func createOptions(_ type: String) async {
+        do {
+            //dentro da vm
+            let request = try HTTPRequestFactory(path: "https://databaseavatar.vercel.app/api/character/\(type)", method: .GET).createRequest()
+            let (data, _) = try await request.send()
+            
+            if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any] {
+               self.styles = json
+                print(styles)
+            }
+            
+            
+            // deixar parte da trataiva aqui mesmo
+        } catch URLError.badURL {
+            self.invalidUrlError = true
+        } catch {
+//                    print(error)
+//                    print(error.localizedDescription)
+            self.unkownError = true
+        }
     }
 }
 
