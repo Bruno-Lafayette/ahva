@@ -23,13 +23,13 @@ struct AvatarView: View {
             TextField("Digite o nome do avatar", text: $name.bound)
                 .padding()
             OptionEditAvatar(type: style)
-            Button {
-                
+            
+            NavigationLink {
+                EditAvatarView()
             } label: {
                 Text("Editar")
             }
-            .frame(width: 160, height: 48, alignment: .center)
-            .background(Color(uiColor: .systemGray4))
+
 
             
             Spacer()
