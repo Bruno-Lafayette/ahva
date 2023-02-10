@@ -4,6 +4,7 @@ struct EditAvatarView: View {
     
     @State var name: String?
     @State var image: UIImage?
+    @State private var showSavedAlert: Bool = false
     private var option: String
     private var style: String
     private var seedDefault: String
@@ -21,23 +22,50 @@ struct EditAvatarView: View {
             
             TextField("Digite o nome do avatar", text: $name.bound)
                 .padding()
-            OptionEditAvatar()
+            OptionEditAvatar(type: style)
+            Button {
+                
+            } label: {
+                Text("Editar")
+            }
+            .frame(width: 160, height: 48, alignment: .center)
+            .background(Color(uiColor: .systemGray4))
+
+            
+            Spacer()
+            Button {
+                Task{
+                    self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
+                    UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+                    withAnimation(.easeIn) {
+                        self.showSavedAlert = true
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                            self.showSavedAlert = false
+                        }
+                    }
+                }
+            } label: {
+                Text("Exportar")
+            }
             
             Spacer()
             
         }
-        .navigationTitle("lagf")
+        .overlay(alignment: .center) {
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(Color(uiColor: .systemGray))
+                    .overlay(alignment: .center) {
+                        Text("Imagem salva na galeria.")
+                            .foregroundColor(.white)
+                            .padding()
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+                    .padding(.horizontal, 40)
+                    .opacity(showSavedAlert ? 1 : 0)
+        }
+        .navigationTitle("Edit screen")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    Task{
-                        self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
-                        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-                    }
-                    
-                } label: {
-                    Image(systemName: "square.and.arrow.up")
-                }
             }
         }
     }

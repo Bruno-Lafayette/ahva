@@ -6,7 +6,7 @@ struct ExemploManhattan: View {
     @State private var unkownError: Bool = false
     private let seedDefault = "manhattan"
     private let option = "seed"
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
         NavigationView{
@@ -27,14 +27,13 @@ struct ExemploManhattan: View {
                         //dentro da vm
                         let request = try HTTPRequestFactory(path: "https://databaseavatar.vercel.app/api/style", method: .GET).createRequest()
                         let (data, response) = try await request.send()
+                        print(response)
                         
-                        print(response.statusCode)
-                        
-                        if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any], let styles: [String] = json["styles"] as? [String] {
-                            
+                        if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any],
+                            let styles: [String] = json["styles"] as? [String] {
                             self.styles = styles
                         }
-                        //
+                        
                         
                         // deixar parte da trataiva aqui mesmo
                     } catch URLError.badURL {
@@ -79,6 +78,7 @@ struct StyleCell: View {
                         ProgressView()
                     }
                 }
+            .frame(width: 100, height: 100)
             .clipShape(Circle())
             Text(title)
         }
