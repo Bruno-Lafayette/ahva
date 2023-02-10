@@ -4,10 +4,12 @@ struct AvatarView: View {
     
     @State var name: String?
     @State var image: UIImage?
-    @State private var showSavedAlert: Bool = false
+    @State private var showSavedAlert = false
+    @State private var showActionSheet = false
     private var option: String
     private var style: String
     private var seedDefault: String
+    
     
     
     init(style: String, seedDefault: String, option: String) {
@@ -29,40 +31,52 @@ struct AvatarView: View {
             } label: {
                 Text("Editar")
             }
-
-
+            Spacer()
             
             Spacer()
-            Button {
-                Task{
-                    self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
-                    UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-                    withAnimation(.easeIn) {
-                        self.showSavedAlert = true
-                        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
-                            self.showSavedAlert = false
+        }
+        .toolbar{
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button() {
+                    self.showActionSheet = true
+                    Task{
+                        self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
+                        withAnimation(.easeIn) {
+                            self.showSavedAlert = true
+                            Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
+                                self.showSavedAlert = false
+                            }
                         }
                     }
+                }label: {
+                    Text(Image(systemName: "square.and.arrow.up"))
                 }
-            } label: {
-                Text("Exportar")
-            }
-            
-            Spacer()
-            
-        }
-        .overlay(alignment: .center) {
-                RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(Color(uiColor: .systemGray))
-                    .overlay(alignment: .center) {
-                        Text("Imagem salva na galeria.")
-                            .foregroundColor(.white)
-                            .padding()
+                
+                .confirmationDialog("O que deseja?", isPresented: $showActionSheet) {
+                    Button("Salvar em Fotos"){
+                        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
                     }
-                    .fixedSize(horizontal: false, vertical: true)
-                    .padding(.horizontal, 40)
-                    .opacity(showSavedAlert ? 1 : 0)
+                    Button("Copiar"){
+                        let pastboard = UIPasteboard.general
+                        pastboard.image = image
+                    }
+                }
+            }
         }
+        
+        
+//        .overlay(alignment: .center) {
+//            RoundedRectangle(cornerRadius: 10)
+//                .foregroundColor(Color(uiColor: .systemGray))
+//                .overlay(alignment: .center) {
+//                    Text("Imagem salva na galeria.")
+//                        .foregroundColor(.white)
+//                        .padding()
+//                }
+//                .fixedSize(horizontal: false, vertical: true)
+//                .padding(.horizontal, 40)
+//                .opacity(showSavedAlert ? 1 : 0)
+//        }
         .navigationTitle("Edit screen")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
