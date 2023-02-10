@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AvatarView: View {
+struct AvatarGenerator: View {
     
     private var style: String
     private var seed: String
@@ -27,7 +27,7 @@ struct AvatarView: View {
     
 }
 
-extension AvatarView{
+extension AvatarGenerator{
     private func createAvatar(_ style: String,_ option: String ,_ name: String) -> String{
         let urlRequest = "https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name)"
         return urlRequest

@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5972992CB2400B59B9D /* HTTPRequest.swift */; };
 		3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5992992D10B00B59B9D /* Extension+Class.swift */; };
-		3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */; };
+		3F18A59C2992D1C600B59B9D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59B2992D1C600B59B9D /* MainView.swift */; };
 		883520962994741300512FE3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883520952994741300512FE3 /* ImageModel.swift */; };
-		88BDDD2B29943AC200846785 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD2A29943AC200846785 /* AvatarView.swift */; };
-		88BDDD31299442DD00846785 /* EditAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD30299442DD00846785 /* EditAvatarView.swift */; };
+		88BDDD2B29943AC200846785 /* AvatarGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD2A29943AC200846785 /* AvatarGenerator.swift */; };
+		88BDDD31299442DD00846785 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD30299442DD00846785 /* AvatarView.swift */; };
 		88DE5315299536FF00902E7B /* OptionEditAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE5314299536FF00902E7B /* OptionEditAvatar.swift */; };
 		88DE53182995688E00902E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DE53172995688E00902E7B /* Preview Assets.xcassets */; };
 		88DE531A2995889100902E7B /* HTTPRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE53192995889100902E7B /* HTTPRequestFactory.swift */; };
@@ -25,11 +25,11 @@
 /* Begin PBXFileReference section */
 		3F18A5972992CB2400B59B9D /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		3F18A5992992D10B00B59B9D /* Extension+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Class.swift"; sourceTree = "<group>"; };
-		3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExemploManhattan.swift; sourceTree = "<group>"; };
+		3F18A59B2992D1C600B59B9D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		883520952994741300512FE3 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		883520972994C45D00512FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		88BDDD2A29943AC200846785 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
-		88BDDD30299442DD00846785 /* EditAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAvatarView.swift; sourceTree = "<group>"; };
+		88BDDD2A29943AC200846785 /* AvatarGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarGenerator.swift; sourceTree = "<group>"; };
+		88BDDD30299442DD00846785 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		88DE5314299536FF00902E7B /* OptionEditAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionEditAvatar.swift; sourceTree = "<group>"; };
 		88DE53172995688E00902E7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88DE53192995889100902E7B /* HTTPRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestFactory.swift; sourceTree = "<group>"; };
@@ -71,8 +71,8 @@
 		88BDDD2E29943FB600846785 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3F18A59B2992D1C600B59B9D /* ExemploManhattan.swift */,
-				88BDDD30299442DD00846785 /* EditAvatarView.swift */,
+				3F18A59B2992D1C600B59B9D /* MainView.swift */,
+				88BDDD30299442DD00846785 /* AvatarView.swift */,
 				88BDDD2F299442B100846785 /* ViewModifiers */,
 			);
 			path = View;
@@ -81,7 +81,7 @@
 		88BDDD2F299442B100846785 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
-				88BDDD2A29943AC200846785 /* AvatarView.swift */,
+				88BDDD2A29943AC200846785 /* AvatarGenerator.swift */,
 				88DE5314299536FF00902E7B /* OptionEditAvatar.swift */,
 			);
 			path = ViewModifiers;
@@ -203,12 +203,12 @@
 				88DE5315299536FF00902E7B /* OptionEditAvatar.swift in Sources */,
 				3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */,
 				88F98E8C298BF36600B95A80 /* Avatar.swift in Sources */,
-				88BDDD2B29943AC200846785 /* AvatarView.swift in Sources */,
+				88BDDD2B29943AC200846785 /* AvatarGenerator.swift in Sources */,
 				883520962994741300512FE3 /* ImageModel.swift in Sources */,
-				3F18A59C2992D1C600B59B9D /* ExemploManhattan.swift in Sources */,
+				3F18A59C2992D1C600B59B9D /* MainView.swift in Sources */,
 				88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */,
 				3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */,
-				88BDDD31299442DD00846785 /* EditAvatarView.swift in Sources */,
+				88BDDD31299442DD00846785 /* AvatarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,7 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
-				DEVELOPMENT_TEAM = Z2T622XX3F;
+				DEVELOPMENT_TEAM = 273QY7G77Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ahva/Info.plist;
@@ -369,7 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
-				DEVELOPMENT_TEAM = Z2T622XX3F;
+				DEVELOPMENT_TEAM = 273QY7G77Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ahva/Info.plist;

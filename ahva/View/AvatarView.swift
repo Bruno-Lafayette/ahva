@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct EditAvatarView: View {
+struct AvatarView: View {
     
     @State var name: String?
     @State var image: UIImage?
@@ -18,7 +18,7 @@ struct EditAvatarView: View {
     
     var body: some View {
         VStack{
-            AvatarView(style, option, name ?? seedDefault)
+            AvatarGenerator(style, option, name ?? seedDefault)
             
             TextField("Digite o nome do avatar", text: $name.bound)
                 .padding()

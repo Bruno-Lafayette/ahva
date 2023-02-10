@@ -5,7 +5,7 @@ struct ahvaApp: App {
     var body: some Scene {
         WindowGroup {
             
-            ExemploManhattan()
+            MainView()
             
         }
     }

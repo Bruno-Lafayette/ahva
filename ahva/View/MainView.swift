@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ExemploManhattan: View {
+struct MainView: View {
     @State private var styles: [String] = []
     @State private var invalidUrlError: Bool = false
     @State private var unkownError: Bool = false
@@ -14,7 +14,7 @@ struct ExemploManhattan: View {
                 LazyVGrid(columns: columns){
                     ForEach(styles, id: \.self) { style in
                         NavigationLink {
-                            EditAvatarView(style: style, seedDefault: seedDefault, option: option)
+                            AvatarView(style: style, seedDefault: seedDefault, option: option)
                         } label: {
                             StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(option)=\(seedDefault)")
                         }
