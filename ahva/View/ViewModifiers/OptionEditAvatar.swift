@@ -1,68 +1,64 @@
-//
-//  OptionEditAvatar.swift
-//  ahva
-//
-//  Created by Bruno Lafayette on 09/02/23.
-//
-
 import SwiftUI
 
 struct OptionEditAvatar: View {
-    @State private var styles: [String:Any] = [:]
+    private var styles: [String:Any]?
     @State private var invalidUrlError: Bool = false
     @State private var unkownError: Bool = false
-    private var type: String
+    @State private var values: [String] = []
+    @State private var key: String = ""
+    private var nameSeed: String?
+    private var style: String
     
-    init(type: String) {
-        self.type = type
+    init(type: String, nameSeed: String?, styles: [String:Any]?) {
+        self.nameSeed = nameSeed
+        self.style = type
+        self.styles = styles
     }
     
+    
     var body: some View {
+                
         ScrollView(.horizontal) {
-            
             HStack(spacing: 10) {
-                ForEach(Array(styles), id: \.key) { style in
+                ForEach(Array(styles ?? [:]), id: \.key) { style in
                     Button {
-                        print(style.value)
+                        values = style.value as! [String]
+                        key = style.key
                     } label: {
                         ButtonStyle(text: style.key)
                     }
                 }
+                .cornerRadius(50)
+                
             }
-            .task {
-                await createOptions(type)
-            }
-            
-            
+//
+//            .task {
+//                await createOptions(style)
+//            }
         }
-        
+        GridStyles(style, nameSeed ?? "" ,key, values)
     }
+    
 }
 
 
-extension OptionEditAvatar{
-    func createOptions(_ type: String) async {
-        do {
-            //dentro da vm
-            let request = try HTTPRequestFactory(path: "https://databaseavatar.vercel.app/api/character/\(type)", method: .GET).createRequest()
-            let (data, _) = try await request.send()
-            
-            if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any] {
-               self.styles = json
-                print(styles)
-            }
-            
-            
-            // deixar parte da trataiva aqui mesmo
-        } catch URLError.badURL {
-            self.invalidUrlError = true
-        } catch {
-//                    print(error)
-//                    print(error.localizedDescription)
-            self.unkownError = true
-        }
-    }
-}
+//extension OptionEditAvatar{
+//    func createOptions(_ type: String) async {
+//        do {
+//            let request = try HTTPRequestFactory(path: "https://databaseavatar.vercel.app/api/character/\(type)", method: .GET).createRequest()
+//            let (data, _) = try await request.send()
+//
+//            if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any] {
+//               self.styles = json
+//            }
+//
+//        } catch URLError.badURL {
+//            self.invalidUrlError = true
+//        } catch {
+//            self.unkownError = true
+//        }
+//    }
+//}
 
 
 struct ButtonStyle: View{
@@ -75,7 +71,7 @@ struct ButtonStyle: View{
     var body: some View{
         Text(text)
             .foregroundColor(.white)
-            .frame(width: 100, height: 100)
+            .frame(width: 50, height: 50)
             .background(.red)
     }
 }

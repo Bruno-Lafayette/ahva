@@ -1,7 +1,6 @@
 import UIKit
 
 class ImageModel{
-    
     static func download(_ urlRequest: String) async throws -> UIImage? {
         var image: UIImage?
         if let url = URL(string: urlRequest){
@@ -12,7 +11,6 @@ class ImageModel{
             }
             
             image = UIImage(data: data)
-
         }
         return image
     }

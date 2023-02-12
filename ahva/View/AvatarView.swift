@@ -2,38 +2,42 @@ import SwiftUI
 
 struct AvatarView: View {
     
-    @State var name: String?
+    @State var nameSeed: String?
     @State var image: UIImage?
     @State private var showSavedAlert: Bool = false
-    private var option: String
+    @State private var dictionaryStyle: [String:Any]? = [:]
+    private var key: String
     private var style: String
     private var seedDefault: String
     
     
-    init(style: String, seedDefault: String, option: String) {
+    init(_ style: String,_ key: String, _ seedDefault: String) {
         self.style = style
         self.seedDefault = seedDefault
-        self.option = option
+        self.key = key
     }
     
     var body: some View {
         VStack{
-            AvatarGenerator(style, option, name ?? seedDefault)
+            AvatarGenerator(typeRequest: .new, style: style, seedName: nameSeed ?? seedDefault)
             
-            TextField("Digite o nome do avatar", text: $name.bound)
-                .padding()            
+            TextField("Digite o nome do avatar", text: $nameSeed.bound)
+                .padding()
+        
             NavigationLink {
-                EditAvatarView(name: name,option: option, style: style, seedDefault: seedDefault)
+                EditAvatarView(key: key, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: editar(dictionario: dictionaryStyle ?? [:]))
             } label: {
                 Text("Editar")
             }
-
-
             
+            .task {
+                dictionaryStyle = await RequestOptionsAvatar().createOptions(style)
+            }
+
             Spacer()
             Button {
                 Task{
-                    self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
+                    self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(key)=\(nameSeed ?? seedDefault)")
                     UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
                     withAnimation(.easeIn) {
                         self.showSavedAlert = true
@@ -67,6 +71,14 @@ struct AvatarView: View {
             }
         }
     }
+    
+    func editar(dictionario: [String: Any])->[String:Any]{
+        print("entrei aqui GAROTOOO",dictionario)
+        return dictionario
+    }
+    
+    
+    
 }
 
 
@@ -90,11 +102,3 @@ extension Optional where Wrapped == String {
         }
     }
 }
-
-
-
-//struct EditAvatarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditAvatarView()
-//    }
-//}

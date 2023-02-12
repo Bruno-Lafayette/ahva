@@ -1,10 +1,3 @@
-//
-//  HTTPRequestFactory.swift
-//  ahva
-//
-//  Created by Bruno Lafayette on 09/02/23.
-//
-
 import Foundation
 
 class HTTPRequestFactory {

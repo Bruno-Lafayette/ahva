@@ -5,7 +5,7 @@ struct MainView: View {
     @State private var invalidUrlError: Bool = false
     @State private var unkownError: Bool = false
     private let seedDefault = "manhattan"
-    private let option = "seed"
+    private let key = "seed"
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     var body: some View {
@@ -14,9 +14,9 @@ struct MainView: View {
                 LazyVGrid(columns: columns){
                     ForEach(styles, id: \.self) { style in
                         NavigationLink {
-                            AvatarView(style: style, seedDefault: seedDefault, option: option)
+                            AvatarView(style, key, seedDefault)
                         } label: {
-                            StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(option)=\(seedDefault)")
+                            StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
                         }
                         .foregroundColor(.white)
                         
@@ -31,11 +31,8 @@ struct MainView: View {
                         if let data, let json = try JSONSerialization.jsonObject(with: data) as? [String:Any],
                             let styles: [String] = json["styles"] as? [String] {
                             self.styles = styles
-                            print(json.values)
                         }
                         
-                        
-                        // deixar parte da trataiva aqui mesmo
                     } catch URLError.badURL {
                         self.invalidUrlError = true
                     } catch {
@@ -53,34 +50,6 @@ struct MainView: View {
             }
             .navigationTitle("Estilos")
             .background(.orange)
-        }
-    }
-}
-
-struct StyleCell: View {
-    private var title: String
-    private var imageURL: String
-    
-    init(title: String, imageURL: String) {
-        self.title = title
-        self.imageURL = imageURL
-    }
-    
-    var body: some View {
-        VStack(alignment: .center, spacing: 5) {
-            Circle()
-                .overlay(alignment: .bottom) {
-                    AsyncImage(url: URL(string: imageURL)) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    } placeholder: {
-                        ProgressView()
-                    }
-                }
-            .frame(width: 100, height: 100)
-            .clipShape(Circle())
-            Text(title)
         }
     }
 }
