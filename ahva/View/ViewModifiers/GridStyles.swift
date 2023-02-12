@@ -12,13 +12,17 @@ struct GridStyles: View {
     private var values: [String]
     private var style: String
     private var key: String
-    private var nameSeed: String
+    private var nameSeed: String?
+    private var seedDefault: String
+    private var dictionaryStyle: [String: Any]
     
-    init(_ style: String,_ nameSeed: String,_ key: String,_ values: [String]) {
+    init(values: [String], style: String, key: String, nameSeed: String, seedDefault: String, dictionaryStyle: [String : Any]) {
         self.values = values
-        self.nameSeed = nameSeed
         self.style = style
         self.key = key
+        self.nameSeed = nameSeed
+        self.seedDefault = seedDefault
+        self.dictionaryStyle = dictionaryStyle
     }
     var body: some View {
         
@@ -29,7 +33,7 @@ struct GridStyles: View {
                     Button {
                         
                     } label: {
-                        StyleCell(title: value, imageURL: "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed)&\(key)=\(value)")
+                        StyleCell(title: value, imageURL: "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed ?? seedDefault)&\(key)=\(value)")
 
                     }
 

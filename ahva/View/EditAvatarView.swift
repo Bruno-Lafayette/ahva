@@ -17,14 +17,25 @@ struct EditAvatarView: View {
     }
     
     var body: some View {
-        VStack {
-
-//            AvatarCustomizer(dictionaryStyles: dictionaryStyle ?? [:], style, "seed", nameSeed ?? seedDefault)
-            AvatarGenerator(typeRequest: .customize, dictionary: dictionaryStyle, style: style, key: key, value: nil, seedName: nameSeed ?? seedDefault)
-            OptionEditAvatar(type: style, nameSeed: nameSeed ?? seedDefault, styles: dictionaryStyle ?? [:])
-            Spacer()
-            
-        }
+        
+        
+        OptionEditAvatar(styles: dictionaryStyle, nameSeed: nameSeed ?? seedDefault, style: style)
+        
+        
+//        VStack {
+//
+//
+//
+//
+//
+////            GridStyles(values: <#T##[String]#>, style: <#T##String#>, key: <#T##String#>, nameSeed: <#T##String#>, seedDefault: <#T##String#>, dictionaryStyle: <#T##[String : Any]#>)
+//
+//
+////            AvatarGenerator(typeRequest: .customize, dictionary: dictionaryStyle, style: style, key: key, value: nil, seedName: nameSeed ?? seedDefault)
+////            OptionEditAvatar(type: style, nameSeed: nameSeed ?? seedDefault, styles: dictionaryStyle ?? [:])
+//            Spacer()
+//
+//        }
     }
     
     

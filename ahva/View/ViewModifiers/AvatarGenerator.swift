@@ -12,16 +12,16 @@ struct AvatarGenerator: View {
     private var typeRequest: toGenerate
     @State private var dictionary: [String:Any]?
     @State private var style: String
-    @State private var key: String?
+    @State private var chave: String?
     private var value: String?
     private var seedName: String
     private var error = "nil"
     
-    init(typeRequest: toGenerate, dictionary: [String : Any]? = nil, style: String, key: String? = nil, value: String? = nil, seedName: String) {
+    init(typeRequest: toGenerate,_ dictionary: [String : Any]? = nil,_ style: String,_ chave: String? = nil,_ value: String? = nil,_ seedName: String) {
         self.typeRequest = typeRequest
         self.dictionary = dictionary
         self.style = style
-        self.key = key
+        self.chave = chave
         self.value = value
         self.seedName = seedName
     }
@@ -29,7 +29,7 @@ struct AvatarGenerator: View {
     var body: some View{
         HStack{
             
-            AsyncImage(url: URL(string: requestImage(request: typeRequest, dictionary ?? [:], seedName, style, key ?? error, value ?? error)))
+            AsyncImage(url: URL(string: requestImage(request: typeRequest, dictionary ?? [:], seedName, style, chave ?? error, value ?? error)))
                 .padding()
 
         }
@@ -38,13 +38,15 @@ struct AvatarGenerator: View {
 }
 
 extension AvatarGenerator{
-    private func requestImage (request: toGenerate,_ dictionary: [String:Any],_ seedName: String,_ style: String,_ key: String ,_ value: String) -> String{
+    private func requestImage (request: toGenerate,_ dictionary: [String:Any],_ seedName: String,_ style: String,_ chave: String ,_ value: String) -> String{
         switch request {
         case .new:
             return createAvatar(style, seedName)
         case .customize:
             var auxDictionary = dictionary
-            return createCustomAvatar(&auxDictionary, style, seedName, key, value)
+            print("AGORA VAI?", chave)
+            print("AGORA VAI?", value)
+            return createCustomAvatar(&auxDictionary, style, seedName, chave, value)
         }
     }
     
@@ -58,6 +60,7 @@ extension AvatarGenerator{
         if key != "nil" && value != "nil"{
             let updatedDictionary = createListEdit(&dictionaryStyles, key!, value!)
             for indice in updatedDictionary{
+                
                 url += "&\(indice.key)=\(indice.value)"
             }
         }
@@ -76,9 +79,6 @@ extension AvatarGenerator{
         }
         return dictionaryStyles
     }
-    
-    
-    
     
 }
 

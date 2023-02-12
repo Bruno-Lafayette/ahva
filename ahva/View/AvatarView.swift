@@ -19,13 +19,16 @@ struct AvatarView: View {
     
     var body: some View {
         VStack{
-            AvatarGenerator(typeRequest: .new, style: style, seedName: nameSeed ?? seedDefault)
+
+            
+            AvatarGenerator(typeRequest: .new, dictionaryStyle, style, nil, nil, nameSeed ?? seedDefault)
+            
             
             TextField("Digite o nome do avatar", text: $nameSeed.bound)
                 .padding()
         
             NavigationLink {
-                EditAvatarView(key: key, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: editar(dictionario: dictionaryStyle ?? [:]))
+                EditAvatarView(key: key, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:])
             } label: {
                 Text("Editar")
             }
@@ -71,18 +74,8 @@ struct AvatarView: View {
             }
         }
     }
-    
-    func editar(dictionario: [String: Any])->[String:Any]{
-        print("entrei aqui GAROTOOO",dictionario)
-        return dictionario
-    }
-    
-    
-    
+
 }
-
-
-
 
 extension Optional where Wrapped == String {
     var _bound: String?{

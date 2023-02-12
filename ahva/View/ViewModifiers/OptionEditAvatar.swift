@@ -2,41 +2,59 @@ import SwiftUI
 
 struct OptionEditAvatar: View {
     private var styles: [String:Any]?
-    @State private var invalidUrlError: Bool = false
-    @State private var unkownError: Bool = false
+    private let columns = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     @State private var values: [String] = []
-    @State private var key: String = ""
-    private var nameSeed: String?
+    @State private var key: String = "hair"
+    @State private var value: String = ""
+    @State private var keyAvatar: String = ""
+    private var nameSeed: String
     private var style: String
     
-    init(type: String, nameSeed: String?, styles: [String:Any]?) {
-        self.nameSeed = nameSeed
-        self.style = type
+    init(styles: [String : Any]? = nil,  nameSeed: String, style: String) {
         self.styles = styles
+        self.nameSeed = nameSeed
+        self.style = style
     }
     
     
     var body: some View {
+        
+        AvatarGenerator(typeRequest: .customize, styles, style, keyAvatar, value, nameSeed)
                 
         ScrollView(.horizontal) {
             HStack(spacing: 10) {
                 ForEach(Array(styles ?? [:]), id: \.key) { style in
                     Button {
                         values = style.value as! [String]
-                        key = style.key
+                        self.key = style.key
                     } label: {
                         ButtonStyle(text: style.key)
                     }
                 }
                 .cornerRadius(50)
-                
             }
-//
-//            .task {
-//                await createOptions(style)
-//            }
         }
-        GridStyles(style, nameSeed ?? "" ,key, values)
+        
+        ScrollView(.vertical) {
+            LazyVGrid(columns: columns) {
+                ForEach(values, id: \.self) { value in
+                    
+                    Button {
+                        keyAvatar = key
+                        self.value = value
+                    } label: {
+                        StyleCell(title: value, imageURL: "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed)&\(key)=\(value)")
+
+                    }
+
+                }
+            }
+        }
+        
+        
+        
+        
+//        GridStyles(style, nameSeed ?? "" ,key, values)
     }
     
 }
