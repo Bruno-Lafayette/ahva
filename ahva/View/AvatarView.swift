@@ -20,17 +20,22 @@ struct AvatarView: View {
     
     var body: some View {
         VStack{
-
-            
             AvatarGenerator(url: avatar.requestImage(request: .new, nameSeed ?? seedDefault, style, error, error))
             
             TextField("Digite o nome do avatar", text: $nameSeed.bound)
                 .padding()
+                .frame(width: 300, height: 49, alignment: .center)
+                .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
+                .cornerRadius(15)
         
             NavigationLink {
                 EditAvatarView(style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
             } label: {
                 Text("Editar")
+                    .padding()
+                    .frame(width: 160, height: 48, alignment: .center)
+                    .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
+                    .cornerRadius(15)
             }
             Spacer()
             
@@ -45,7 +50,7 @@ struct AvatarView: View {
                 Button() {
                     self.showActionSheet = true
                     Task{
-                        self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(option)=\(name ?? seedDefault)")
+                        self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed ?? seedDefault)")
                         withAnimation(.easeIn) {
                             self.showSavedAlert = true
                             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in
@@ -56,6 +61,7 @@ struct AvatarView: View {
                 }label: {
                     Text(Image(systemName: "square.and.arrow.up"))
                 }
+                
                 
                 .confirmationDialog("O que deseja?", isPresented: $showActionSheet) {
                     Button("Salvar em Fotos"){
@@ -68,21 +74,7 @@ struct AvatarView: View {
                 }
             }
         }
-        
-        
-//        .overlay(alignment: .center) {
-//            RoundedRectangle(cornerRadius: 10)
-//                .foregroundColor(Color(uiColor: .systemGray))
-//                .overlay(alignment: .center) {
-//                    Text("Imagem salva na galeria.")
-//                        .foregroundColor(.white)
-//                        .padding()
-//                }
-//                .fixedSize(horizontal: false, vertical: true)
-//                .padding(.horizontal, 40)
-//                .opacity(showSavedAlert ? 1 : 0)
-//        }
-        .navigationTitle("Edit screen")
+        .navigationTitle(style)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
             }

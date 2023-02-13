@@ -38,9 +38,9 @@ struct ButtonStyle: View{
     }
     
     var body: some View{
-        Text(text)
-            .foregroundColor(.white)
-            .frame(width: 50, height: 50)
-            .background(.red)
+        Image(text)
+            .foregroundColor(.black)
+            .frame(width: 70, height: 70)
+            .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
     }
 }

@@ -18,7 +18,7 @@ struct MainView: View {
                         } label: {
                             StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
                         }
-                        .foregroundColor(.white)
+                        .foregroundColor(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
                     }
                 }
                 .task {
@@ -47,7 +47,6 @@ struct MainView: View {
                 }
             }
             .navigationTitle("Estilos")
-            .background(.orange)
         }
     }
 }
