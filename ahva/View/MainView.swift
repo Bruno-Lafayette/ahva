@@ -19,12 +19,10 @@ struct MainView: View {
                             StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
                         }
                         .foregroundColor(.white)
-                        
                     }
                 }
                 .task {
                     do {
-                        //dentro da vm
                         let request = try HTTPRequestFactory(path: "https://databaseavatar.vercel.app/api/style", method: .GET).createRequest()
                         let (data, _) = try await request.send()
                         
