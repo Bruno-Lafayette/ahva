@@ -2,33 +2,32 @@ import SwiftUI
 
 struct AvatarView: View {
     
+    let avatar = Avatar()
     @State var nameSeed: String?
     @State var image: UIImage?
     @State private var showSavedAlert: Bool = false
     @State private var dictionaryStyle: [String:Any]? = [:]
-    private var key: String
     private var style: String
     private var seedDefault: String
+    private var error = "nil"
     
     
-    init(_ style: String,_ key: String, _ seedDefault: String) {
+    init(_ style: String, _ seedDefault: String) {
         self.style = style
         self.seedDefault = seedDefault
-        self.key = key
     }
     
     var body: some View {
         VStack{
 
             
-            AvatarGenerator(typeRequest: .new, dictionaryStyle, style, nil, nil, nameSeed ?? seedDefault)
-            
+            AvatarGenerator(url: avatar.requestImage(request: .new, nameSeed ?? seedDefault, style, error, error))
             
             TextField("Digite o nome do avatar", text: $nameSeed.bound)
                 .padding()
         
             NavigationLink {
-                EditAvatarView(key: key, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:])
+                EditAvatarView(style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
             } label: {
                 Text("Editar")
             }
@@ -40,7 +39,7 @@ struct AvatarView: View {
             Spacer()
             Button {
                 Task{
-                    self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?\(key)=\(nameSeed ?? seedDefault)")
+                    self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed ?? seedDefault)")
                     UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
                     withAnimation(.easeIn) {
                         self.showSavedAlert = true

@@ -8,35 +8,33 @@
 import SwiftUI
 
 struct GridStyles: View {
+    @Binding var valueSelect: String
     private let columns = [GridItem(.flexible()),GridItem(.flexible()),GridItem(.flexible())]
     private var values: [String]
     private var style: String
     private var key: String
-    private var nameSeed: String?
-    private var seedDefault: String
-    private var dictionaryStyle: [String: Any]
+    private var nameSeed: String
     
-    init(values: [String], style: String, key: String, nameSeed: String, seedDefault: String, dictionaryStyle: [String : Any]) {
+    init(valueSelect: Binding<String>, values: [String], style: String, key: String?, nameSeed: String) {
+        self._valueSelect = valueSelect
         self.values = values
         self.style = style
-        self.key = key
+        self.key = key ?? "erro"
         self.nameSeed = nameSeed
-        self.seedDefault = seedDefault
-        self.dictionaryStyle = dictionaryStyle
     }
     var body: some View {
-        
-        ScrollView(.vertical) {
-            LazyVGrid(columns: columns) {
-                ForEach(values, id: \.self) { value in
-                    
-                    Button {
+        if key != "erro"{
+            ScrollView(.vertical) {
+                LazyVGrid(columns: columns) {
+                    ForEach(values, id: \.self) { value in
+                        Button {
+                            valueSelect = value
+                        } label: {
+                            StyleCell(title: value, imageURL: "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed)&\(key)=\(value)")
+                            
+                        }
                         
-                    } label: {
-                        StyleCell(title: value, imageURL: "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed ?? seedDefault)&\(key)=\(value)")
-
                     }
-
                 }
             }
         }

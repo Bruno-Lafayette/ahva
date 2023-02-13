@@ -14,7 +14,7 @@ struct MainView: View {
                 LazyVGrid(columns: columns){
                     ForEach(styles, id: \.self) { style in
                         NavigationLink {
-                            AvatarView(style, key, seedDefault)
+                            AvatarView(style, seedDefault)
                         } label: {
                             StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
                         }
