@@ -1,18 +1,8 @@
-//
-//  Class+Extension.swift
-//  ahva
-//
-//  Created by Bruno Lafayette on 10/02/23.
-//
-
 import Foundation
 
-extension Array{
-    func getElementAtIndex(_ index: Int)-> Element?{
-        if index < self.endIndex{
-            return self[index]
-        }
-        return nil
+extension Array {
+    func getElementAt(index: Int) -> Element? {
+        return (index < self.endIndex) ? self[index] : nil
     }
 }
 
@@ -26,35 +16,67 @@ class Avatar{
         case .new:
             return createAvatar(style, seedName)
         case .customize:
-            if key != "nil" || value != ""{
-                return createCustomAvatar(style, seedName, key, value)
+            if key != "nil"{
+                return createCustomAvatar(style, seedName, (key, value))
             }
-            print("ENTREI AQUI")
-            return "https://api.dicebear.com/5.x/\(style)/png?seed=\(seedName)"
+            return urlAvatar
+        case .lastRequest:
+            return URLDefault(style: style, seedName: seedName, key: key, value: value)
+
         }
     }
     
     private func createAvatar(_ style: String,_ value: String) -> String{
-        urlAvatar = "https://api.dicebear.com/5.x/\(style)/png?seed=\(value)"
+        self.urlAvatar = "https://api.dicebear.com/5.x/\(style)/png?seed=\(value)"
         return urlAvatar
     }
     
-    func createCustomAvatar(_ style: String,_ nameSeed: String,_ key: String,_ value: String) -> String{
-        urlAvatar = "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed)"
-        dictionary.updateValue(value, forKey: key)
-        if value != "" {
-            for indice in dictionary{
-                urlAvatar += "&\(indice.key)=\(indice.value)"
+    private func createCustomAvatar(_ style: String,_ nameSeed: String,_ keyValue: (String, String)) -> String{
+        self.urlAvatar = "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed)"
+        dictionary.updateValue(keyValue.1, forKey: keyValue.0)
+        
+        for indice in dictionary{
+            if indice.key != "nil" && indice.value as! String != ""{
+                self.urlAvatar += "&\(indice.key)=\(indice.value)"
             }
         }
         print(urlAvatar)
         return urlAvatar
     }
     
+    
+    private func URLDefault(style: String, seedName: String, key: String, value: String) -> String{
+        let lastRequest = createCustomAvatar(style, seedName, (key,value))
+        self.urlAvatar = "https://api.dicebear.com/5.x/"
+        self.dictionary = [:]
+        return lastRequest
+    }
+    
+    
 }
 
 
 enum toGenerate {
-    case new, customize
+    case new, customize, lastRequest
 }
 
+//class CreateAvatarViewModel: ObservableObject {
+//
+//    enum AvatarStyle: String {
+//        case style1 = "/asdasdasd"
+//    }
+//
+//    private let BASE_PATH = "https://..."
+//    
+//    
+//    
+//    @Published var url: String = ""
+//    @Published var values: [String:String] = [:]
+////    private var selectedStyle: AvatarStyle
+//    
+//    func buildURL() -> URL?  {
+//        return URL(string: "\(BASE_PATH)/\(selectedStyle)")
+//    }
+//    
+//    
+//}

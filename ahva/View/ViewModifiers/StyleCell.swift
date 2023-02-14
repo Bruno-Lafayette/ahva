@@ -1,10 +1,3 @@
-//
-//  StyleCell.swift
-//  ahva
-//
-//  Created by Bruno Lafayette on 10/02/23.
-//
-
 import SwiftUI
 
 struct StyleCell: View {

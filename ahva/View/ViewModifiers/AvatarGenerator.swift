@@ -1,10 +1,3 @@
-//
-//  CreateAvatar.swift
-//  ahva
-//
-//  Created by Bruno Lafayette on 08/02/23.
-//
-
 import SwiftUI
 
 struct AvatarGenerator: View {

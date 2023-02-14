@@ -8,7 +8,7 @@ class HTTPRequestFactory {
     private var timeoutInterval: Double
     private var body: Data?
     
-    public init(path: String, method: HTTPMethod, body: Data? = nil, timeoutInterval: Double = 5, parameters: [String:[Any]] = [:], headers: [String:Any] = [:]) {
+    public init(path: String, method: HTTPMethod, body: Data? = nil, timeoutInterval: Double = 15, parameters: [String:[Any]] = [:], headers: [String:Any] = [:]) {
         self.path = path
         self.method = method
         self.parameters = parameters
