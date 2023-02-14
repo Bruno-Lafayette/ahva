@@ -34,7 +34,7 @@ struct EditAvatarView: View {
             .toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button() {
-                        urlOption = avatar.requestImage(request: .lastRequest, nameSeed ?? seedDefault, style, key ?? error, value)
+                        urlOption = addUrl()
                         dismiss()
                     }label: {
                         Text("Ok")
