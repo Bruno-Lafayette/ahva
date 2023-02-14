@@ -19,7 +19,8 @@ struct MainView: View {
                             AvatarView(style, seedDefault,url: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
                         } label: {
                             
-                            StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
+                            StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)", text: true)
+                            
                         }
                         .foregroundColor(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
                     }

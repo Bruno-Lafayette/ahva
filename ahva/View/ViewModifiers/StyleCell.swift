@@ -3,10 +3,12 @@ import SwiftUI
 struct StyleCell: View {
     private var title: String
     private var imageURL: String
+    private var text = false
     
-    init(title: String, imageURL: String) {
+    init(title: String, imageURL: String, text: Bool) {
         self.title = title
         self.imageURL = imageURL
+        self.text = text
     }
     
     var body: some View {
@@ -23,7 +25,11 @@ struct StyleCell: View {
                 }
             .frame(width: 100, height: 100)
             .clipShape(Circle())
-//            Text(title)
+            if text {
+                Text(title)
+                    .foregroundColor(.black)
+            }
         }
+        
     }
 }

@@ -23,7 +23,7 @@ struct GridStyles: View {
                 Button {
                     valueSelect = value
                 } label: {
-                    StyleCell(title: value, imageURL: "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed)&\(key)=\(value)")
+                    StyleCell(title: value, imageURL: "https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed)&\(key)=\(value)", text: false)
                     
                 }
                 .foregroundColor(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))

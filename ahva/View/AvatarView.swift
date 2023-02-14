@@ -38,7 +38,7 @@ struct AvatarView: View {
             Button {
                 urlAvatar = avatar.requestImage(request: .new, nameSeed ?? seedDefault, style, error, error)
             } label: {
-                Text("Criar Avatar")
+                Text("Adicionar nome")
                 .padding()
                 .frame(width: 160, height: 48, alignment: .center)
                 .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
@@ -52,7 +52,7 @@ struct AvatarView: View {
             NavigationLink {
                 EditAvatarView(urlOption: $urlAvatar, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
             } label: {
-                Text("Editar")
+                Text("Personalizar")
                     .padding()
                     .frame(width: 160, height: 48, alignment: .center)
                     .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
