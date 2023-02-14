@@ -23,6 +23,7 @@ struct OptionEditAvatar: View {
                     } label: {
                         ButtonStyle(text: style.key)
                     }
+
                 }
                 .cornerRadius(50)
             }

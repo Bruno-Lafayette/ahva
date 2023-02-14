@@ -62,7 +62,6 @@ struct AvatarView: View {
                     Text(Image(systemName: "square.and.arrow.up"))
                 }
                 
-                
                 .confirmationDialog("O que deseja?", isPresented: $showActionSheet) {
                     Button("Salvar em Fotos"){
                         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
