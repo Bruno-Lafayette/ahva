@@ -3,6 +3,7 @@ import SwiftUI
 struct AvatarView: View {
     
     let avatar = Avatar()
+    let createRequest = RequestOptionsAvatar()
     @State var nameSeed: String?
     @State var image: UIImage?
     @State private var dictionaryStyle: [String:Any]? = [:]
@@ -11,25 +12,45 @@ struct AvatarView: View {
     private var style: String
     private var seedDefault: String
     private var error = "nil"
+    @State private var urlAvatar: String
     
-    
-    init(_ style: String, _ seedDefault: String) {
+    init(_ style: String, _ seedDefault: String,url: String) {
         self.style = style
         self.seedDefault = seedDefault
+        self.urlAvatar = url
     }
     
     var body: some View {
         VStack{
-            AvatarGenerator(url: avatar.requestImage(request: .new, nameSeed ?? seedDefault, style, error, error))
+            AvatarGenerator(url: urlAvatar)
+                .task {
+                    urlAvatar = avatar.requestImage(request: .new, nameSeed ?? seedDefault, style, error, error)
+                }
+            
             
             TextField("Digite o nome do avatar", text: $nameSeed.bound)
                 .padding()
                 .frame(width: 300, height: 49, alignment: .center)
                 .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
                 .cornerRadius(15)
+            
+            
+            Button {
+                urlAvatar = avatar.requestImage(request: .new, nameSeed ?? seedDefault, style, error, error)
+            } label: {
+                Text("Criar Avatar")
+                .padding()
+                .frame(width: 160, height: 48, alignment: .center)
+                .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
+                .cornerRadius(15)
+            }
+            
+            Spacer()
+            
+            
         
             NavigationLink {
-                EditAvatarView(style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
+                EditAvatarView(urlOption: $urlAvatar, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
             } label: {
                 Text("Editar")
                     .padding()
@@ -40,17 +61,15 @@ struct AvatarView: View {
             Spacer()
             
             .task {
-                dictionaryStyle = await RequestOptionsAvatar().createOptions(style)
+                dictionaryStyle = await createRequest.createOptions(style)
             }
-
-            Spacer()
         }
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button() {
                     self.showActionSheet = true
                     Task{
-                        self.image = try await ImageModel.download("https://api.dicebear.com/5.x/\(style)/png?seed=\(nameSeed ?? seedDefault)")
+                        self.image = try await ImageModel.download(urlAvatar)
                         withAnimation(.easeIn) {
                             self.showSavedAlert = true
                             Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { _ in

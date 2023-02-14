@@ -1,12 +1,14 @@
 import SwiftUI
 
 struct MainView: View {
+
+    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     @State private var styles: [String] = []
     @State private var invalidUrlError: Bool = false
     @State private var unkownError: Bool = false
     private let seedDefault = "manhattan"
     private let key = "seed"
-    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    private var url = ""
     
     var body: some View {
         NavigationView{
@@ -14,8 +16,9 @@ struct MainView: View {
                 LazyVGrid(columns: columns){
                     ForEach(styles, id: \.self) { style in
                         NavigationLink {
-                            AvatarView(style, seedDefault)
+                            AvatarView(style, seedDefault,url: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
                         } label: {
+                            
                             StyleCell(title: style, imageURL: "https://api.dicebear.com/5.x/\(style)/png?\(key)=\(seedDefault)")
                         }
                         .foregroundColor(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
