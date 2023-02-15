@@ -1,10 +1,3 @@
-//
-//  HTTPRequest.swift
-//  ahva
-//
-//  Created by Well on 07/02/23.
-//
-
 import Foundation
 
 class HTTPRequest {

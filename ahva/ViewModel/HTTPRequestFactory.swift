@@ -17,7 +17,6 @@ class HTTPRequestFactory {
         self.body = body
     }
     
-    //recebe os parametros
     private func buildParameters() -> String {
         var params: String = ""
         
@@ -29,7 +28,6 @@ class HTTPRequestFactory {
         return params
     }
     
-    //constroi a url
     private func buildURL() throws -> URL {
         var domain = self.path
         
@@ -44,7 +42,6 @@ class HTTPRequestFactory {
         return url
     }
     
-    //cria a requisição
     func createRequest() throws -> HTTPRequest {
         let url = try buildURL()
         var request = URLRequest(url: url)

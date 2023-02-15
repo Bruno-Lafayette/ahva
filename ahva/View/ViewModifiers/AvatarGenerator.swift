@@ -11,7 +11,6 @@ struct AvatarGenerator: View {
         HStack{
             AsyncImage(url: URL(string: url))
                 .padding()
-            
         }
     }
 }

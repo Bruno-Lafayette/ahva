@@ -9,10 +9,11 @@ struct AvatarView: View {
     @State private var dictionaryStyle: [String:Any]? = [:]
     @State private var showSavedAlert = false
     @State private var showActionSheet = false
+    @State private var showALert = false
+    @State private var urlAvatar: String
     private var style: String
     private var seedDefault: String
     private var error = "nil"
-    @State private var urlAvatar: String
     
     init(_ style: String, _ seedDefault: String,url: String) {
         self.style = style
@@ -26,7 +27,6 @@ struct AvatarView: View {
                 .task {
                     urlAvatar = avatar.requestImage(request: .new, nameSeed ?? seedDefault, style, error, error)
                 }
-            
             
             TextField("Digite o nome do avatar", text: $nameSeed.bound)
                 .padding()
@@ -44,11 +44,9 @@ struct AvatarView: View {
                 .background(Color(uiColor: .init(red: 0.851, green: 0.851, blue: 0.851, alpha: 1)))
                 .cornerRadius(15)
             }
-            
+        
             Spacer()
             
-            
-        
             NavigationLink {
                 EditAvatarView(urlOption: $urlAvatar, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
             } label: {
@@ -63,6 +61,9 @@ struct AvatarView: View {
             .task {
                 dictionaryStyle = await createRequest.createOptions(style)
             }
+        }
+        .onTapGesture {
+            avatar.hideKeyboard()
         }
         .toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -84,21 +85,28 @@ struct AvatarView: View {
                 .confirmationDialog("O que deseja?", isPresented: $showActionSheet) {
                     Button("Salvar em Fotos"){
                         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+                        showALert = true
+                        
                     }
+                    
                     Button("Copiar"){
                         let pastboard = UIPasteboard.general
                         pastboard.image = image
                     }
                 }
             }
+            
         }
         .navigationTitle(style)
+        .alert("Imagem salva", isPresented: $showALert) {
+            Button(role: .cancel, action: {}, label: {Text("Ok")})
+        }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
             }
         }
     }
-
+    
 }
 
 extension Optional where Wrapped == String {

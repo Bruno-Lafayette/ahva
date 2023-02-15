@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 extension Array {
     func getElementAt(index: Int) -> Element? {
@@ -44,7 +45,6 @@ class Avatar{
         return urlAvatar
     }
     
-    
     private func URLDefault(style: String, seedName: String, key: String, value: String) -> String{
         let lastRequest = createCustomAvatar(style, seedName, (key,value))
         self.urlAvatar = "https://api.dicebear.com/5.x/"
@@ -52,31 +52,13 @@ class Avatar{
         return lastRequest
     }
     
+    func hideKeyboard() {
+        let resposta = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resposta, to: nil, from: nil, for: nil)
+    }
     
 }
-
 
 enum toGenerate {
     case new, customize, lastRequest
 }
-
-//class CreateAvatarViewModel: ObservableObject {
-//
-//    enum AvatarStyle: String {
-//        case style1 = "/asdasdasd"
-//    }
-//
-//    private let BASE_PATH = "https://..."
-//    
-//    
-//    
-//    @Published var url: String = ""
-//    @Published var values: [String:String] = [:]
-////    private var selectedStyle: AvatarStyle
-//    
-//    func buildURL() -> URL?  {
-//        return URL(string: "\(BASE_PATH)/\(selectedStyle)")
-//    }
-//    
-//    
-//}
