@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3F185A6B2996BA5F00B60256 /* EditAvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185A6A2996BA5F00B60256 /* EditAvatarView.swift */; };
+		3F185A6B2996BA5F00B60256 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F185A6A2996BA5F00B60256 /* EditView.swift */; };
 		3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5972992CB2400B59B9D /* HTTPRequest.swift */; };
-		3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A5992992D10B00B59B9D /* Extension+Class.swift */; };
 		3F18A59C2992D1C600B59B9D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F18A59B2992D1C600B59B9D /* MainView.swift */; };
 		883520962994741300512FE3 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883520952994741300512FE3 /* ImageModel.swift */; };
 		88BDDD2B29943AC200846785 /* AvatarGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD2A29943AC200846785 /* AvatarGenerator.swift */; };
 		88BDDD31299442DD00846785 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BDDD30299442DD00846785 /* AvatarView.swift */; };
+		88C4C3D1299DD50F005AB566 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4C3D0299DD50F005AB566 /* SplashView.swift */; };
+		88C4C3D3299DE791005AB566 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C4C3D2299DE791005AB566 /* Alert.swift */; };
 		88DE5315299536FF00902E7B /* OptionEditAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE5314299536FF00902E7B /* OptionEditAvatar.swift */; };
 		88DE53182995688E00902E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88DE53172995688E00902E7B /* Preview Assets.xcassets */; };
 		88DE531A2995889100902E7B /* HTTPRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE53192995889100902E7B /* HTTPRequestFactory.swift */; };
@@ -22,20 +23,21 @@
 		88DE5320299727C400902E7B /* Class+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE531F299727C400902E7B /* Class+Extension.swift */; };
 		88DE53222997287B00902E7B /* CustomGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DE53212997287B00902E7B /* CustomGrid.swift */; };
 		88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7D298BF25300B95A80 /* ahvaApp.swift */; };
-		88F98E80298BF25300B95A80 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7F298BF25300B95A80 /* ContentView.swift */; };
+		88F98E80298BF25300B95A80 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E7F298BF25300B95A80 /* NetworkMonitor.swift */; };
 		88F98E82298BF25300B95A80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F98E81298BF25300B95A80 /* Assets.xcassets */; };
-		88F98E8C298BF36600B95A80 /* RequestOptionsEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E8B298BF36600B95A80 /* RequestOptionsEdit.swift */; };
+		88F98E8C298BF36600B95A80 /* RequestOptionsAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F98E8B298BF36600B95A80 /* RequestOptionsAvatar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F185A6A2996BA5F00B60256 /* EditAvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAvatarView.swift; sourceTree = "<group>"; };
+		3F185A6A2996BA5F00B60256 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		3F18A5972992CB2400B59B9D /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
-		3F18A5992992D10B00B59B9D /* Extension+Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Class.swift"; sourceTree = "<group>"; };
 		3F18A59B2992D1C600B59B9D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		883520952994741300512FE3 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 		883520972994C45D00512FE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		88BDDD2A29943AC200846785 /* AvatarGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarGenerator.swift; sourceTree = "<group>"; };
 		88BDDD30299442DD00846785 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		88C4C3D0299DD50F005AB566 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		88C4C3D2299DE791005AB566 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		88DE5314299536FF00902E7B /* OptionEditAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionEditAvatar.swift; sourceTree = "<group>"; };
 		88DE53172995688E00902E7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		88DE53192995889100902E7B /* HTTPRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestFactory.swift; sourceTree = "<group>"; };
@@ -45,9 +47,9 @@
 		88DE53212997287B00902E7B /* CustomGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGrid.swift; sourceTree = "<group>"; };
 		88F98E7A298BF25300B95A80 /* ahva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ahva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F98E7D298BF25300B95A80 /* ahvaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ahvaApp.swift; sourceTree = "<group>"; };
-		88F98E7F298BF25300B95A80 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		88F98E7F298BF25300B95A80 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		88F98E81298BF25300B95A80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		88F98E8B298BF36600B95A80 /* RequestOptionsEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOptionsEdit.swift; sourceTree = "<group>"; };
+		88F98E8B298BF36600B95A80 /* RequestOptionsAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestOptionsAvatar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +77,7 @@
 				88DE53192995889100902E7B /* HTTPRequestFactory.swift */,
 				883520952994741300512FE3 /* ImageModel.swift */,
 				88DE531F299727C400902E7B /* Class+Extension.swift */,
-				88F98E8B298BF36600B95A80 /* RequestOptionsEdit.swift */,
+				88F98E8B298BF36600B95A80 /* RequestOptionsAvatar.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -83,9 +85,10 @@
 		88BDDD2E29943FB600846785 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				88BDDD30299442DD00846785 /* AvatarView.swift */,
+				88C4C3D0299DD50F005AB566 /* SplashView.swift */,
 				3F18A59B2992D1C600B59B9D /* MainView.swift */,
-				3F185A6A2996BA5F00B60256 /* EditAvatarView.swift */,
+				88BDDD30299442DD00846785 /* AvatarView.swift */,
+				3F185A6A2996BA5F00B60256 /* EditView.swift */,
 				88BDDD2F299442B100846785 /* ViewModifiers */,
 			);
 			path = View;
@@ -97,6 +100,7 @@
 				88BDDD2A29943AC200846785 /* AvatarGenerator.swift */,
 				88DE53212997287B00902E7B /* CustomGrid.swift */,
 				88DE531B2996DB5900902E7B /* GridStyles.swift */,
+				88C4C3D2299DE791005AB566 /* Alert.swift */,
 				88DE5314299536FF00902E7B /* OptionEditAvatar.swift */,
 				88DE531D299717ED00902E7B /* StyleCell.swift */,
 			);
@@ -132,13 +136,12 @@
 			children = (
 				883520972994C45D00512FE3 /* Info.plist */,
 				88F98E7D298BF25300B95A80 /* ahvaApp.swift */,
-				88F98E7F298BF25300B95A80 /* ContentView.swift */,
+				88F98E7F298BF25300B95A80 /* NetworkMonitor.swift */,
 				88BDDD2C29943F8100846785 /* Model */,
 				88BDDD2D29943F9F00846785 /* ViewModel */,
 				88BDDD2E29943FB600846785 /* View */,
 				88F98E81298BF25300B95A80 /* Assets.xcassets */,
 				88DE53162995682100902E7B /* Preview Content */,
-				3F18A5992992D10B00B59B9D /* Extension+Class.swift */,
 			);
 			path = ahva;
 			sourceTree = "<group>";
@@ -214,20 +217,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				88DE5320299727C400902E7B /* Class+Extension.swift in Sources */,
-				88F98E80298BF25300B95A80 /* ContentView.swift in Sources */,
+				88F98E80298BF25300B95A80 /* NetworkMonitor.swift in Sources */,
+				88C4C3D1299DD50F005AB566 /* SplashView.swift in Sources */,
 				88DE531C2996DB5900902E7B /* GridStyles.swift in Sources */,
 				88DE531A2995889100902E7B /* HTTPRequestFactory.swift in Sources */,
 				88DE5315299536FF00902E7B /* OptionEditAvatar.swift in Sources */,
-				3F185A6B2996BA5F00B60256 /* EditAvatarView.swift in Sources */,
+				3F185A6B2996BA5F00B60256 /* EditView.swift in Sources */,
 				88DE531E299717ED00902E7B /* StyleCell.swift in Sources */,
 				3F18A5982992CB2400B59B9D /* HTTPRequest.swift in Sources */,
-				88F98E8C298BF36600B95A80 /* RequestOptionsEdit.swift in Sources */,
+				88F98E8C298BF36600B95A80 /* RequestOptionsAvatar.swift in Sources */,
 				88BDDD2B29943AC200846785 /* AvatarGenerator.swift in Sources */,
 				883520962994741300512FE3 /* ImageModel.swift in Sources */,
 				88DE53222997287B00902E7B /* CustomGrid.swift in Sources */,
 				3F18A59C2992D1C600B59B9D /* MainView.swift in Sources */,
 				88F98E7E298BF25300B95A80 /* ahvaApp.swift in Sources */,
-				3F18A59A2992D10B00B59B9D /* Extension+Class.swift in Sources */,
+				88C4C3D3299DE791005AB566 /* Alert.swift in Sources */,
 				88BDDD31299442DD00846785 /* AvatarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -357,7 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ahva/Info.plist;
@@ -391,7 +395,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ahva/Preview Content\"";
-				DEVELOPMENT_TEAM = 273QY7G77Q;
+				DEVELOPMENT_TEAM = Z2T622XX3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ahva/Info.plist;

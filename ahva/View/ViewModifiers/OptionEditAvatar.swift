@@ -17,7 +17,7 @@ struct OptionEditAvatar: View {
     var body: some View {
         ScrollView(.horizontal) {
             HStack(spacing: 10) {
-                ForEach(Array(styles ?? [:]), id: \.key) { style in
+                ForEach(Array((styles?.sorted(by: {$0.key < $1.key}))!), id: \.key) { style in
                     Button {
                         self.valueSelectReset = ""
                         self.values = style.value as! [String]

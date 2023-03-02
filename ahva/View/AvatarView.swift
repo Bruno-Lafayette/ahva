@@ -48,7 +48,7 @@ struct AvatarView: View {
             Spacer()
             
             NavigationLink {
-                EditAvatarView(urlOption: $urlAvatar, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
+                EditView(urlOption: $urlAvatar, style: style, seedDefault: nameSeed ?? seedDefault, dictionaryStyle: dictionaryStyle ?? [:], avatar: avatar)
             } label: {
                 Text("Personalizar")
                     .padding()

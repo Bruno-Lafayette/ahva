@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct EditAvatarView: View {
-    
+struct EditView: View {
+    @EnvironmentObject var networkMonitor: NetworkMonitor
     @Environment(\.dismiss) var dismiss
     private let avatar: Avatar
     @Binding var urlOption: String
@@ -27,22 +27,30 @@ struct EditAvatarView: View {
     
     var body: some View {
         
-        AvatarGenerator(url: addUrl())
-        OptionEditAvatar(dictionaryStyle, $values, $key, $value)
-        GridStyles(valueSelect: $value, values: values, style: style, key: key, nameSeed: nameSeed ?? seedDefault)
-        Spacer()
-            .toolbar{
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button() {
-                        urlOption = addUrl()
-                        dismiss()
-                    }label: {
-                        Text("Ok")
+        if networkMonitor.isConnected {
+            
+            AvatarGenerator(url: addUrl())
+            OptionEditAvatar(dictionaryStyle, $values, $key, $value)
+            GridStyles(valueSelect: $value, values: values, style: style, key: key, nameSeed: nameSeed ?? seedDefault)
+            Spacer()
+                .toolbar{
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button() {
+                            urlOption = addUrl()
+                            dismiss()
+                        }label: {
+                            Text("Ok")
+                        }
                     }
                 }
-            }
-    }
-    
+            
+        } else {
+            
+            Alert(imageText: "icloud.slash", title: "Ops!", text: "Houve algum problema com a conexão")
+            
+        }
+        
+    }               
     private func addUrl() -> String{
         self.urlOption = avatar.requestImage(request: .customize, nameSeed ?? seedDefault, style, key ?? error, value)
         return self.urlOption

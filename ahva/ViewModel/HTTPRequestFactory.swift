@@ -19,26 +19,24 @@ class HTTPRequestFactory {
     
     private func buildParameters() -> String {
         var params: String = ""
-        
         for key in self.parameters.keys {
             guard let value = parameters[key] else { continue }
             params += (params.isEmpty) ? "?\(key)=\(value)" : "&\(key)=\(value)"
         }
-        
+
         return params
     }
     
     private func buildURL() throws -> URL {
         var domain = self.path
-        
         if !self.parameters.isEmpty {
             domain += buildParameters()
         }
-        
+
         guard let url = URL(string: domain) else {
             throw URLError(.badURL)
         }
-        
+
         return url
     }
     
@@ -48,18 +46,18 @@ class HTTPRequestFactory {
         request.httpMethod = self.method.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
+
         if !self.headers.isEmpty {
             for key in self.headers.keys {
                 guard let value = self.headers[key] else { continue }
                 request.addValue("\(value)", forHTTPHeaderField: key)
             }
         }
-        
+
         if let body {
             request.httpBody = body
         }
-        
+
         request.timeoutInterval = self.timeoutInterval
         return HTTPRequest(request: request)
     }

@@ -1,4 +1,3 @@
-import Foundation
 import SwiftUI
 
 extension Array {
@@ -41,7 +40,7 @@ class Avatar{
                 self.urlAvatar += "&\(indice.key)=\(indice.value)"
             }
         }
-        print(urlAvatar)
+        print(urlAvatar, " DEU RUIM" )
         return urlAvatar
     }
     
